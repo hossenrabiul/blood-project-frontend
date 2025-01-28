@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       document.getElementById('user-location').textContent = `${profile.divition || 'Unknown'}, ${profile.country || 'Unknown'}`;
       document.getElementById('age-gender').textContent = `${profile.age || 'N/A'}, ${profile.gender || 'N/A'}`; 
     
-      fetch(`https://datadonor-webapp.vercel.app/event/events/?last_donate=${localStorage.getItem('guest_id')}`)
+      fetch(`https://blood-project.onrender.com/event/events/?last_donate=${localStorage.getItem('guest_id')}`)
         .then(res => res.json())
         .then(data => {
     
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       
         let x = 0;
     
-        fetch(`https://datadonor-webapp.vercel.app/event/events/?user=${localStorage.getItem('guest_id')}&status=Completed`)
+        fetch(`https://blood-project.onrender.com/event/events/?user=${localStorage.getItem('guest_id')}&status=Completed`)
         .then(res => res.json())
           .then(data => {
             let currentValue = parseInt(document.getElementById('total-donations').textContent, 10);
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
           })
       
-          fetch(`https://datadonor-webapp.vercel.app/event/events/?user=${localStorage.getItem('guest_id')}&status=Pending`)
+          fetch(`https://blood-project.onrender.com/event/events/?user=${localStorage.getItem('guest_id')}&status=Pending`)
           .then(res => res.json())
             .then(data => {
               let currentValue = parseInt(document.getElementById('total-donations').textContent, 10);
@@ -194,33 +194,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       History();
     });
     
-    
-    // const donated_blood_ul = document.querySelector('#donate_completed.ul');
-    // donated_blood_ul.classList.add('bg-red-600');
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+  
     
     const loadBloodHistory = (fieldSelector, userId, type) => {
       const field = document.querySelector(fieldSelector);
       const queryKey = type === "donor" ? "doner" : "user";
       const statusFilter = type === "receiver" ? "&status=Completed" : "";
     
-      fetch(`https://datadonor-webapp.vercel.app/event/events/?${queryKey}=${userId}${statusFilter}`)
+      fetch(`https://blood-project.onrender.com/event/events/?${queryKey}=${userId}${statusFilter}`)
         .then(res => res.json())
         .then(data => {
           data.forEach(event => {
@@ -229,7 +210,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
             const profileKey = type === "donor" ? event.user : event.doner;
     
-            fetch(`https://datadonor-webapp.vercel.app/accounts/profiles/?user_id=${profileKey}`)
+            fetch(`http://blood-project.onrender.com/accounts/profiles//?user_id=${profileKey}`)
               .then(res => res.json())
               .then(profileData => {
                 const user = profileData[0];
@@ -273,13 +254,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     
     
-      fetch(`https://datadonor-webapp.vercel.app/event/events/?user=${userId}&status=${status}`)
+      fetch(`https://blood-project.onrender.com/event/events/?user=${userId}&status=${status}`)
         .then(res => res.json())
         .then(data => {
     
           data.forEach(event => {
   
-            fetch(`https://datadonor-webapp.vercel.app/accounts/users/?id=${event.user}`)
+            fetch(`http://blood-project.onrender.com/accounts/users/?id=${event.user}`)
               .then(res => res.json())
               .then(userData => {
   
@@ -323,7 +304,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     const receivedBloodSubmition = (event_id, event_blood, doner_id) => {
     
-      fetch(`https://datadonor-webapp.vercel.app/event/events/${event_id}/received/`, {
+      fetch(`https://blood-project.onrender.com/event/events/${event_id}/received/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json', 
