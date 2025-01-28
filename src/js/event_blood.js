@@ -153,7 +153,7 @@ const acceptEvent = (event_id, user_id,event_blood) => {
         'doner_message':'',
       }
 
-      fetch(`https://datadonor-webapp.vercel.app/event/events/${event_id}/accepted/`, {
+      fetch(`https://blood-project.onrender.com/event/events/${event_id}/accepted/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json', // Ensure the request is sent as JSON

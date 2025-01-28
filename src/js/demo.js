@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   
     try {
-        const response = await fetch(`https://datadonor-webapp.vercel.app/accounts/profiles/?user_id=${user_id}`);
+        const response = await fetch(`http://blood-project.onrender.com/accounts/profiles/?user_id=${user_id}`);
         
         if (!response.ok) {
             throw new Error('Failed to fetch user profile');

@@ -31,7 +31,7 @@ const footerControl = () => {
                     <div class="text-red-500  ">
                       
                     </div>
-                    <h2 class="text-xl font-bold text-teal-600">Data.Doner</h2>
+                    <h2 class="text-xl font-bold text-teal-600">Blood Center</h2>
                   </div>
                   <p class="text-sm max-w-xs">Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor
                     incidi.</p>
